@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+
+:root {
+    --ivoire:     #F8F5F0;  /* fond principal */
+    --fond-2:     #EDEAF4;  /* fond secondaire */
+    --or:         #C9A96E;  /* accent chaud, prénoms */
+    --texte:      #1C0F12;  /* texte principal */
+    --texte-2:    #6F7E86;  /* texte secondaire */
+
+    --ok:      #2D6A4F; /* Texte Accepté */
+    --nok:     #9B2226; /* texte Refusé */
+    --ok-bg:   #D8F3DC; /* BG Accepté */
+    --nok-bg:  #FFE5E5; /* BG Refusé */
+
+    --ombre:      rgba(28, 15, 18, 0.10);
+    --bg:         rgba(180, 155, 140, 0.315);
+    --head-bg:     hsla(261, 100%, 23%, 0.452);
+    --footer-bg:  hsla(213, 85%, 8%, 0.897);
+    --footer-lien: hsla(39, 46%, 61%, 0.61);
+     --bgSecond: oklab(32.254% 0.00694 -0.00889 / 0.534); 
+
+/*  --violet:     #7c3aed;
+    --rose:       #f4436c; */
+
+}
+/* @media (prefers-color-scheme: dark) {
+    :root {
+        --ivoire:  #1C1917;
+        --fond-2:  #292524;
+        --texte:   #F5F0EB;
+        --texte-2: #A8A29E;
+        --or:      #D4A853;
+        --bg:         hsla(17, 9%, 15%, 0.816);
+        --head-bg:  hsla(261, 30%, 15%, 0.85);
+        --footer-bg: hsla(213, 50%, 6%, 0.95);
+        --ombre:   rgba(0, 0, 0, 0.35);
+        --ok:      #52B788;
+        --nok:     #E5383B;
+        --ok-bg:   rgba(82, 183, 136, 0.15);
+        --nok-bg:  rgba(229, 56, 59, 0.15);
+        --bgSecond: rgba(255, 255, 255, 0.06); }} */
+
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing:border-box;
+}
+
+* a{
+    text-decoration: none;
+    color: var(--texte);
+}
+
+body {
+    font-family: "DM Sans", sans-serif;
+    color: var(--texte);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: var(--bg);
+}
+
+h1, h2, h3, h4 {
+    font-family: "Cormorant Garamond", serif;
+}
+
+@keyframes rotaYes {
+    25% {transform: rotate(5deg);}
+    50% {transform: rotate(0deg);}
+    75% {transform: rotate(-5deg);}
+    0%, 100% {transform: rotate(0deg);}
+}

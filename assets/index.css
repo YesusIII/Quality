@@ -1,0 +1,245 @@
+/* HEADER : Title, Details Entreprise, Add Entry */
+header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    padding-right: 10vw;
+    background: var(--head-bg);
+}
+.header-text {
+    max-width: 600px;
+}
+header h1{
+    text-align: center;
+    padding: 10px;
+    text-decoration: underline;
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+header p{
+    font-style: italic;
+    display: block;
+    font-size: 0.9rem;
+    padding-left: 10px;
+}
+#newEntry{
+    height: 55px;
+    width: 250px;
+    margin: 25px;
+    border-radius: 15px;
+    border: none;
+    transition: font-size 0.5s ease;
+    font-weight: bold;
+    font-size: 1rem;
+}
+#newEntry:hover{
+    background: var(--or);
+    font-size: 1.2rem;
+    font-weight: bold;
+    animation: rotaYes 0.5s linear infinite;
+    box-shadow: inset 0px 0px 5px  #00000096;
+}
+#newEntry:active{
+    
+    /* background: var(--ok); */
+    font-size: 1.3rem;
+    animation: none;
+    box-shadow: none;
+    background: var(--ok);
+    transition: all 0.2s;
+}
+
+/* NOUVELLE SAISIE */
+.entry_dialog{
+    top: 15%;
+    left: 15%;
+    width: 600px;
+    border-radius: 20px;
+    z-index: 10;
+    padding: 10px 15px 25px 15px;
+    border: 5px double var(--bgSecond);
+    }
+.entry_dialog:hover{
+    background: var(--ivoire);
+}
+.entry_dialog h2{
+    text-align: center;
+    margin-bottom: 5px;
+}
+.mat_epaisseur{
+    display: grid;
+    grid-template-columns: 20% 70%;
+    grid-template-rows: 1fr 1fr;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    }
+
+#mat, #epaisseur{
+    width: 60%;
+    padding-left: 8px;
+    font-size: 1rem;
+    margin: auto 0;
+}
+
+
+.plan_input_dialog, .cota_input_dialog, .diff_input_dialog {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 0.8fr 0.8fr;
+    text-align: center;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.plan_input_dialog label, .cota_input_dialog label, .diff_input_dialog label{
+    grid-row: 1;
+    margin: auto;
+}
+.plan_input_dialog input, .cota_input_dialog input, .diff_input_dialog input {
+    margin: auto;
+
+}
+
+.diff_input_dialog{
+    text-align: center;
+    margin: auto;
+    width: 75%;
+}
+#clientInput, #refInput {
+    display: block;
+    padding-left: 10px;
+    margin-bottom: 1rem;
+}
+#refInput{
+    margin-bottom: 1.5rem;
+}
+
+.entry_dialog input{
+    border-radius: 5px;
+    border: 1px solid var(--texte-2);
+    height: 2rem;
+    width: 75%;
+    padding-left: 10px;
+    font-size: 1.1rem;
+}
+
+.entry_dialog select{
+    border-radius: 5px;
+    border: 1px solid var(--texte-2);
+    height: 2rem;
+    width: 40%;
+}
+.actionsDialog{
+    width: 100%;
+    display: flex;
+    gap: 50px;
+    justify-content:space-evenly;
+    text-align: center;
+    align-content: center;
+}
+.actionsDialog button{
+    height: 2rem;
+    width: 100px;
+    border-radius: 5px;
+    outline: none;
+    border: 1px solid var(--texte-2);
+    cursor: pointer;
+}
+
+.diffMeter{
+    margin: auto;
+    width: 75%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+#meterXhtml, #meterYhtml {
+    height: 2rem;
+    width: 80%;
+    margin: auto;
+}
+/* Tableau :  */
+.tableau {
+    padding: 1rem 2rem;
+    overflow-x: auto;
+}
+table {
+    width: 100%;
+    /* border-collapse: collapse; */
+    font-size: 0.9rem;
+}
+thead tr {
+    background: var(--head-bg);
+    color: var(--ivoire);
+}
+th {
+    padding: 10px 12px;
+    text-align: center;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+}
+td {
+    padding: 8px 12px;
+    text-align: center;
+    border-bottom: 1px solid var(--ombre);
+}
+tbody tr:nth-child(even) {
+    background: var(--bgSecond);
+}
+tbody tr:hover {
+    background: var(--fond-2);
+    transition: background 0.2s ease;
+}
+
+.statut-ok {
+    background-color: var(--ok-bg);
+    color: var(--ok);
+    font-weight: bold;
+    text-align: center;
+}
+
+.statut-nok {
+    background-color: var(--nok-bg);
+    color: var(--nok);
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Resumé / Totaux */
+.Resume {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    padding: 1.5rem 2rem;
+}
+
+.Resume div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--fond-2);
+    border-radius: 12px;
+    padding: 1rem 2rem;
+    min-width: 150px;
+}
+
+.Resume p {
+    font-size: 0.85rem;
+    color: var(--texte-2);
+    margin-bottom: 0.5rem;
+}
+
+.Resume span {
+    font-size: 2rem;
+    font-weight: 700;
+    font-family: "Arial", serif;
+}
+#numTotalEntry  { color: var(--texte); }
+#numGoodEntry   { color: var(--ok); }
+#numBadEntry    { color: var(--nok); }
