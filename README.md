@@ -1,2 +1,2 @@
 # Quality
-https://github.com/YesusIII/Quality/index.html
+https://github.com/YesusIII/Quality/
