@@ -64,6 +64,25 @@ header p{
 .entry_dialog:hover{
     background: var(--ivoire);
 }
+
+.notif_error_input {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+    background: red;
+    color: white;
+    padding: 0 1rem;
+    border-radius: 10px 10px 0 0;
+    margin-bottom: 10px;
+}
+
+.notif_error_input.active {
+    max-height: 50px;
+    opacity: 1;
+    padding: 0.5rem 1rem;
+}
+
 .entry_dialog h2{
     text-align: center;
     margin-bottom: 5px;
@@ -132,6 +151,28 @@ header p{
     height: 2rem;
     width: 40%;
 }
+
+.tool_selector{
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+input[type="radio"] { display: none;}
+
+.tool_selector label {
+    padding: 6px 16px;
+    border: 1px solid var(--texte-2);
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 0;
+    }
+
+input[type="radio"]:checked + label {
+    background: var(--or);
+    color: var(--ivoire);
+    border-color: var(--or);
+}
+
 .actionsDialog{
     width: 100%;
     display: flex;
@@ -243,3 +284,4 @@ tbody tr:hover {
 #numTotalEntry  { color: var(--texte); }
 #numGoodEntry   { color: var(--ok); }
 #numBadEntry    { color: var(--nok); }
+

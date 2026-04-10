@@ -23,13 +23,14 @@
 <!-- Overlay/Dialog : Fenetre de Saisie -->
 <dialog id="entryDialog" class="entry_dialog">
     <form method="dialog">
-
+        <div id="notif_Input_Error" class="notif_error_input">
+        </div>
     <h2>Nouvelle Saisie :</h2> <!-- <p>⚙️</p> -->
-    <label for="clientInput">Client</label><input id="clientInput" type="text">
-    <label for="refInput">Réference</label><input id="refInput" type="text">
+    <label for="clientInput">Client*</label><input id="clientInput" type="text">
+    <label for="refInput">Réference*</label><input id="refInput" type="text">
     
     <div class="mat_epaisseur">
-        <label for="mat">Matière</label><select name="Matiere" id="mat">
+        <label for="mat">Matière*</label><select name="Matiere" id="mat">
             <option value="">Choisir une Matière</option>
             <option value="304L">Inox - 304L</option>
             <option value="316L">Inox - 316L</option>
@@ -39,7 +40,7 @@
             <option value="S700">Acier - S700</option>
             <option value="5754">Aluminium - 5754</option>
         </select>
-        <label for="epaisseur">Épaisseur</label><select name="epaisseur" id="epaisseur">
+        <label for="epaisseur">Épaisseur*</label><select name="epaisseur" id="epaisseur">
             <option value="">Choisir une Épaisseur</option>
             <option value="1">1</option>
             <option value="1.5">1.5</option>
@@ -57,24 +58,34 @@
     </div>
     
     <div class="plan_input_dialog">
-        <label for="planXinput">Plan X (mm)</label><input id="planXinput" type="number" step="0.01">
-        <label for="planYinput">Plan Y (mm)</label><input id="planYinput" type="number" step="0.01">
+        <label for="planXinput">Plan X (mm)*</label><input id="planXinput" type="number" step="0.01">
+        <label for="planYinput">Plan Y (mm)*</label><input id="planYinput" type="number" step="0.01">
     </div>
     
     <div class="cota_input_dialog">
-        <label for="cotaXinput">Relevé en X</label><input id="cotaXinput" type="number" step="0.01">
+        <label for="cotaXinput">Relevé en X*</label><input id="cotaXinput" type="number" step="0.01">
         <label for="cotaYinput">Relevé en Y</label><input id="cotaYinput" type="number" step="0.01">
     </div>
+
+   <div class="tool_selector">
+    <input type="radio" name="outil" id="piedACoulisse" value="0.5">
+    <label for="piedACoulisse">Pied à coulisse</label>
     
+    <input type="radio" name="outil" id="metreRuban" value="1">
+    <label for="metreRuban">Mètre ruban</label>
+</div>
+
+    </div>
+
     <div class="diff_input_dialog" id="diffInputDialog">
-        <label for="diffXinput">Tol. en X (±mm)</label><input id="diffXinput" type="number" step="0.01">
-        <label for="diffYinput">Tol. en Y (±mm)</label><input id="diffYinput" type="number" step="0.01">
+        <label for="diffXinput">Tol. en X (±mm)*</label><input id="diffXinput" type="number" step="0.01">
+        <label for="diffYinput">Tol. en Y (±mm)*</label><input id="diffYinput" type="number" step="0.01">
     </div>
     
-    <!-- <div class="diffMeters"> -->
+    <!-- diffMeters -->
 
     <div class="actionsDialog">
-        <button type="submit" id="ok">Valider</button>
+        <button type="button" id="ok">Valider</button>
         <button type="button" id="cancel">Annuler</button>
     </div>
 </form>
@@ -137,6 +148,28 @@
 
 <!-- Fin du tableau -->
 </main>
+<!-- Footer -->
+<input type="radio" name="outil" id="piedACoulisse" value="0.05">
+<footer>
+    <div class="footer_details"> 
+    <small>Yezz · 2026 | Projet-4 <sup class="version">1.1<span id="infoVersion">💠</span></sup>
+        <br>
+</small>
+    </div>
+    <div class="versionlog" id="versionlog">
+        <p>v1.0</p>
+        <ul>
+            <li>Projet & fonctionnalités opérationnelles</li>
+        </ul>
+        <p>v1.1 </p>
+        <ul>
+            <li>Bandeau erreur rouge dans le dialog</li>
+            <li>Fix meter max avec marge visuelle</li>
+            <li>Sélecteur outil de mesure auto-fill tolérances</li>
+            <li>Désactivation radio sur saisie manuelle</li>
+        </ul>
+    </div>
+</footer>
 <!-- FIN DU MAIN -->
     <script src="./assets/main.js"></script>
 </body>

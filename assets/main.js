@@ -7,6 +7,8 @@ const DEBUG = true // Permet l'utilisation des console.table/log pour affichage 
 const btnNewEntry = document.getElementById('newEntry') //Bouton New Saisie
 const entryDialog = document.getElementById('entryDialog') // Dialog : New Saisie
 
+const notifError = document.getElementById('notif_Input_Error') //div Erreur de Saisie dans dialog
+
 const btnCancelEntry = document.getElementById('cancel') // Btn Annuler dans New Saisie
 const btnOkEntry = document.getElementById('ok') // Btn Valider dans New Saisie
 
@@ -30,8 +32,9 @@ const numTotalEntry = document.getElementById('numTotalEntry')
 const numGoodEntry = document.getElementById('numGoodEntry')
 const numBadEntry = document.getElementById('numBadEntry')
 
+const infoVersion = document.getElementById('infoVersion')
 
-
+const diffXY = [diffX, diffY] //Pour desactiver mes radio dans le forEach en cas de saisie manuelle
 let total = 0
 let totalOk = 0
 let totalNok = 0
@@ -49,8 +52,32 @@ btnCancelEntry.addEventListener("click", () =>{
     entryDialog.close();
 })
 
-//Fonction Creation 
+//Erreurs sur mes Inputs
+function showError(message) {
+    notifError.textContent = message
+    notifError.classList.add('active')
+    setTimeout(() => {
+        notifError.classList.remove('active')
+    }, 5000)
+}
+//Selecteurs type Radio
+document.querySelectorAll('input[name="outil"]').forEach(radio => {
+    radio.addEventListener('change', () => {
+        diffX.value = radio.value
+        diffY.value = radio.value
+    })
+})
+//en cas de modif : les Radio passe en inactif
 
+diffXY.forEach(input => {
+    input.addEventListener('input', () => {
+        document.querySelectorAll('input[name="outil"]').forEach(radio => {
+            radio.checked = false
+        })
+    })
+})
+
+//Fonction Creation 
 function creerRow(isOkX, isOkY, ecartX, ecartY) { 
     //Appel de isOkX et isOKY + ecartX & Y (en parametres)
     const createRow = document.createElement('tr')
@@ -73,18 +100,18 @@ function creerRow(isOkX, isOkY, ecartX, ecartY) {
         meterRowX.classList.add('meter_row_x')
         const tolX = parseFloat(diffX.value)
         meterRowX.min = 0
-        meterRowX.max = tolX
+        meterRowX.max = tolX * 1
         meterRowX.low = tolX * 0.7
-        meterRowX.high = tolX * 0.9
+        meterRowX.high = tolX * 0.99
         meterRowX.optimum = 0
         meterRowX.value = ecartX
     const meterRowY = document.createElement('meter')
         meterRowY.classList.add('meter_row_y')
         const tolY = parseFloat(diffY.value)
         meterRowY.min = 0
-        meterRowY.max = tolY
+        meterRowY.max = tolY * 1
         meterRowY.low = tolY * 0.7
-        meterRowY.high = tolY * 0.9
+        meterRowY.high = tolY * 0.99
         meterRowY.optimum = 0
         meterRowY.value = ecartY
 
@@ -132,7 +159,7 @@ btnOkEntry.addEventListener('click', () => {
         if (!client.value || !refPiece.value || !mat.value || 
         !epaiss.value || !planX.value || !planY.value || 
         !cotaX.value || !cotaY.value || !diffX.value || !diffY.value) {
-        alert("Tous les champs sont obligatoires")
+        showError("Tous les champs sont obligatoires")
         return
     }
     const ecartX = Math.abs(parseFloat(planX.value) - parseFloat(cotaX.value)) || 0
@@ -194,14 +221,19 @@ inputListenMeter.forEach((input) =>{
     const tolX = parseFloat(diffX.value) || 0
     const tolY = parseFloat(diffY.value) || 0
 
-    meterX.max = tolX
+    meterX.max = tolX * 1
     meterX.low = tolX * 0.7
     meterX.high = tolX * 0.9
     meterX.value = Math.abs(parseFloat(planX.value) - parseFloat(cotaX.value)) || 0
 
-    meterY.max = tolY
+    meterY.max = tolY * 1
     meterY.low = tolY * 0.7
     meterY.high = tolY * 0.9
     meterY.value = Math.abs(parseFloat(planY.value) - parseFloat(cotaY.value)) || 0
     })
+})
+
+infoVersion.addEventListener('click', function() {
+    const versionlog = document.getElementById('versionlog')
+    versionlog.classList.toggle('active')
 })

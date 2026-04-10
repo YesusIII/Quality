@@ -17,7 +17,7 @@
     --head-bg:     hsla(261, 100%, 23%, 0.452);
     --footer-bg:  hsla(213, 85%, 8%, 0.897);
     --footer-lien: hsla(39, 46%, 61%, 0.61);
-     --bgSecond: oklab(32.254% 0.00694 -0.00889 / 0.534); 
+    --bgSecond: rgba(75, 73, 78, 0.53);
 
 /*  --violet:     #7c3aed;
     --rose:       #f4436c; */
@@ -64,10 +64,67 @@ body {
 h1, h2, h3, h4 {
     font-family: "Cormorant Garamond", serif;
 }
-
+main{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
 @keyframes rotaYes {
     25% {transform: rotate(5deg);}
     50% {transform: rotate(0deg);}
     75% {transform: rotate(-5deg);}
     0%, 100% {transform: rotate(0deg);}
+}
+
+
+footer {
+background: var(--footer-bg);
+color:var(--texte-2);
+text-align: center;
+padding-top: 5px;
+font-style: italic;
+line-height: 1rem;
+bottom: 0;
+left: 0;
+right: 0;
+cursor: default;
+pointer-events: all;
+overflow: hidden;
+transition: transform 1s ease;
+}
+
+.footer_details:hover{
+    transform: scale(1.2);
+}
+
+.versionlog{
+    display: none;
+    z-index: 10;
+    border: 2px solid var(--or);
+    background: var(--ok-bg);
+    position: absolute;
+    bottom: 30px;
+    right: 10px;
+    padding: 1rem;
+    border-radius: 20px;
+    font-style: italic;
+    max-width: 400px;
+}
+.versionlog.active{
+    display: block;
+}
+.versionlog p{
+    margin-bottom: 5px;
+}
+.versionlog ul{
+    margin: 1rem;
+}
+
+.versionlog li{
+    list-style: none;
+    text-align: right;
+}
+#infoVersion{
+    cursor: pointer;
 }
